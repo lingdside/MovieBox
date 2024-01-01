@@ -5,3 +5,5 @@ pip install werkzeug==0.16.1
 cd moviebox
 flask forge (--drop) 创建数据库并导入原始数据
 flask run
+
+展示：大作业.pptx
