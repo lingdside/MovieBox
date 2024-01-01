@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<p>
+    {{ movies|length }} Titles
+</p>
+
+<form method="post">
+    Name <input type="text" name="title" autocomplete="off" required>
+    Year <input type="text" name="year" autocomplete="off" required>
+    Type <input type="text" name="type" autocomplete="off" required>
+    Country <input type="text" name="country" autocomplete="off" required>
+    Box <input type="text" name="box" autocomplete="off" required>
+    <input class="btn" type="submit" name="submit" value="Add">
+</form>
+
+<ul class="movie-list">
+    {% for movie in movies %}
+    <li>{{ movie.title }} - {{ movie.year }} - {{ movie.type }} - {{ movie.country }} , 票房： {{ movie.box }}
+        <span class="float-right">
+            <a class="imdb" href="https://movie.douban.com/subject_search?search_text={{ movie.title }}" target="_blank" title="Find this movie on 豆瓣">豆瓣</a>
+        </span>
+    </li>
+    {% endfor %}
+</ul>
+<img alt="Walking Totoro" class="totoro" src="{{ url_for('static', filename='images/totoro.gif') }}" title="to~to~ro~">
+{% endblock %}
